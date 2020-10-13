@@ -1,0 +1,35 @@
+vector<int> bfs_util(vector<int> g[],int N,int s,bool visited[])
+{
+    vector<int> ans;
+    //ans.push_back(s);
+    visited[s]=true;
+    queue<int> q;
+    q.push(s);
+    while(!q.empty())
+    {
+        s=q.front();
+        ans.push_back(s);
+        q.pop();
+        vector<int>::iterator it;
+        for(it=g[s].begin();it!=g[s].end();it++)
+        {
+            if(!visited[*it])
+            {
+                visited[*it]=true;
+                q.push(*it);
+            }
+        }
+    }
+    return ans;
+}
+vector <int> bfs(vector<int> g[], int N) {
+
+ bool visited[N];
+ for(int i=0;i<N;i++)
+ visited[i]=false;
+    //for(int i=0;i<N;i++)
+    //{
+        vector<int> ans=bfs_util(g,N,0,visited);
+        return ans;
+    //}
+}
