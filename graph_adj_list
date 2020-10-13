@@ -10,6 +10,7 @@ void display(list<int> adj_list[],int v)
     for(int i=0;i<v;i++)
     {
         cout<<i<<"-->";
+        //iterator
         list<int>::iterator it;
         for(it=adj_list[i].begin();it!=adj_list[i].end();it++)
         {
@@ -21,7 +22,7 @@ void display(list<int> adj_list[],int v)
 int main()
 {
     int v=6;
-    //cin>>v;
+    //array of list
     list<int> adj_list[v];
     add_edge(adj_list, 0, 4);
    add_edge(adj_list, 0, 3);
