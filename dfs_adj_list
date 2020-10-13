@@ -1,0 +1,21 @@
+//send vector pass by reference
+void dfs_util(vector<int> g[],int N,int s,bool visited[],vector<int> &ans)
+{
+    visited[s]=true;
+    ans.push_back(s);
+    vector<int>::iterator it;
+    for(it=g[s].begin();it!=g[s].end();it++)
+    {
+        if(!visited[*it])
+        dfs_util(g,N,*it,visited,ans);
+    }
+}
+vector <int> dfs(vector<int> g[], int N)
+{
+    vector<int> ans;
+    bool visited[N];
+    for(int i=0;i<N;i++)
+    visited[i]=false;
+    dfs_util(g,N,0,visited,ans);
+    return ans;
+}
